@@ -8,7 +8,8 @@ SRC_DIR		= srcs
 OBJ_DIR		= obj
 
 SRCS		= main.c \
-			  usage.c
+			  usage.c \
+			  parsing.c
 
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 

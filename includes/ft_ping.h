@@ -4,6 +4,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <errno.h>
 
 # define DEFAULT_TTL        64
 # define DEFAULT_INTERVAL   1
@@ -28,5 +29,6 @@ typedef struct s_ping
 }	t_ping;
 
 void	usage(const char *prog_name);
+void	parse_args(int argc, char **argv, t_ping *ping);
 
 #endif
