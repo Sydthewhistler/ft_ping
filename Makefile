@@ -9,7 +9,10 @@ OBJ_DIR		= obj
 
 SRCS		= main.c \
 			  usage.c \
-			  parsing.c
+			  parsing.c \
+			  resolve.c \
+			  socket.c \
+			  packet.c
 
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 

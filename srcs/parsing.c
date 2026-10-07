@@ -30,27 +30,32 @@ void	parse_args(int argc, char **argv, t_ping *ping)
 	ping->target_raw = NULL;
 	while ((opt = getopt(argc, argv, "vqht:c:i:W:")) != -1)
 	{
-		if (opt == 'v')
-			ping->opts.verbose = 1;
-		else if (opt == 'q')
-			ping->opts.quiet = 1;
-		else if (opt == 'h')
+		switch (opt)
 		{
-			ping->opts.help = 1;
-			return ;
-		}
-		else if (opt == 't')
-			ping->opts.ttl = parse_int_arg("-t", optarg);
-		else if (opt == 'c')
-			ping->opts.count = parse_int_arg("-c", optarg);
-		else if (opt == 'i')
-			ping->opts.interval = parse_int_arg("-i", optarg);
-		else if (opt == 'W')
-			ping->opts.timeout = parse_int_arg("-W", optarg);
-		else
-		{
-			usage(argv[0]);
-			exit(EXIT_FAILURE);
+			case 'v':
+				ping->opts.verbose = 1;
+				break ;
+			case 'q':
+				ping->opts.quiet = 1;
+				break ;
+			case 'h':
+				ping->opts.help = 1;
+				return ;
+			case 't':
+				ping->opts.ttl = parse_int_arg("-t", optarg);
+				break ;
+			case 'c':
+				ping->opts.count = parse_int_arg("-c", optarg);
+				break ;
+			case 'i':
+				ping->opts.interval = parse_int_arg("-i", optarg);
+				break ;
+			case 'W':
+				ping->opts.timeout = parse_int_arg("-W", optarg);
+				break ;
+			default:
+				usage(argv[0]);
+				exit(EXIT_FAILURE);
 		}
 	}
 	if (optind >= argc)
